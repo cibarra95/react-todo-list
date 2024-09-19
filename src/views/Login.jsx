@@ -1,6 +1,6 @@
-import {useEffect, useState} from 'react';
-import axios from 'axios';
+import { useState} from 'react';
 import {useNavigate} from "react-router-dom";
+import { login } from './login-service'
 
 const Login = () => {
     const [email, setEmail] = useState(''); //eve.holt@reqres.in
@@ -14,13 +14,13 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('https://reqres.in/api/login', {
-                email,
-                password,
-            });
+            const token = await login({ email, password });
 
-            setToken(response.data.token);
+            setToken(token);
             setError(null);
+            if (token) {
+                navigate('/todos');
+            }
         } catch (err) {
             if (err.response) {
                 setError(err.response.data.error);
@@ -29,12 +29,6 @@ const Login = () => {
             }
         }
     };
-
-    useEffect(() => {
-        if (token) {
-            navigate('/login'); // Redirige a otra ruta cuando el token no es null
-        }
-    }, [token, navigate]);
 
     return (
         <div className="h-screen flex items-center justify-center bg-gradient-to-b from-orange-500/20 to-indigo-500/20">
