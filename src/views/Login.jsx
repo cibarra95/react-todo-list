@@ -19,7 +19,7 @@ const Login = () => {
                 password,
             });
 
-            setToken(response.data.token); // Maneja el token recibido
+            setToken(response.data.token);
             setError(null);
         } catch (err) {
             if (err.response) {
@@ -42,7 +42,7 @@ const Login = () => {
                 <h1 className="text-2xl font-bold mb-4">Login</h1>
                 <form onSubmit={handleLogin}>
                     <div className="mb-4">
-                        <label className="block text-gray-700">Email:</label>
+                        <label className="block text-gray-700">Correo electrónico:</label>
                         <input
                             type="email"
                             value={email}
@@ -52,7 +52,7 @@ const Login = () => {
                         />
                     </div>
                     <div className="mb-4">
-                        <label className="block text-gray-700">Password:</label>
+                        <label className="block text-gray-700">Contraseña:</label>
                         <input
                             type="password"
                             value={password}
