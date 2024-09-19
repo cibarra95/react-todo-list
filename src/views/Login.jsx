@@ -3,7 +3,8 @@ import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 
 const Login = () => {
-    const [email, setEmail] = useState(''); //eve.holt@reqres.in
+    const [email, setEmail] = useState(''); //
+
     const [password, setPassword] = useState(''); //pistol
     const [error, setError] = useState(null);
     const [token, setToken] = useState(null);
@@ -32,7 +33,8 @@ const Login = () => {
 
     useEffect(() => {
         if (token) {
-            navigate('/login'); // Redirige a otra ruta cuando el token no es null
+            console.log("TOKEN ", token)
+            navigate('/todo'); // Redirige a otra ruta cuando el token no es null
         }
     }, [token, navigate]);
 

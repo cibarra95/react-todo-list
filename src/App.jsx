@@ -7,7 +7,7 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<Login/>}/>
-                <Route path="/login" element={<TodoList/>}/> {/* Página de destino */}
+                <Route path="/todo" element={<TodoList/>}/> {/* Página de destino */}
             </Routes>
         </Router>
     );
