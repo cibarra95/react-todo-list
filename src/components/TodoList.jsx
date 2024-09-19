@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import TodoItem from './TodoItem';
 
 const TodoList = () => {
@@ -25,31 +25,33 @@ const TodoList = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto p-4 bg-white rounded shadow-md">
-            <h1 className="text-2xl font-bold mb-4">Lista de TODOs</h1>
-            <div className="flex mb-4">
-                <input
-                    type="text"
-                    value={newTodo}
-                    onChange={(e) => setNewTodo(e.target.value)}
-                    className="flex-grow p-2 border border-gray-300 rounded"
-                />
-                <button
-                    onClick={addTodo}
-                    className="ml-2 text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded"
-                >
-                    Agregar
-                </button>
-            </div>
+        <div className="h-screen flex items-center justify-center bg-gradient-to-b from-sky-500/20 to-indigo-500/20">
+            <div className="min-w-lg mx-auto p-8 bg-white rounded-xl shadow-md">
+                <h1 className="text-2xl font-bold mb-4">Lista de ToDo's</h1>
+                <div className="flex mb-4">
+                    <input
+                        type="text"
+                        value={newTodo}
+                        onChange={(e) => setNewTodo(e.target.value)}
+                        className="flex-grow p-2 border border-gray-300 rounded"
+                    />
+                    <button
+                        onClick={addTodo}
+                        className="ml-2 text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded"
+                    >
+                        Agregar
+                    </button>
+                </div>
 
-            {todos.map((todo) => (
-                <TodoItem
-                    key={todo.id}
-                    todo={todo}
-                    onToggleComplete={toggleComplete}
-                    onEdit={editTodo}
-                />
-            ))}
+                {todos.map((todo) => (
+                    <TodoItem
+                        key={todo.id}
+                        todo={todo}
+                        onToggleComplete={toggleComplete}
+                        onEdit={editTodo}
+                    />
+                ))}
+            </div>
         </div>
     );
 };

@@ -1,10 +1,16 @@
-import React from 'react';
-import TodoList from './components/TodoList';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Login from "./views/Login.jsx";
+import TodoList from "./components/TodoList.jsx"; // Vista a la que rediriges después del login
 
-export default function App() {
+function App() {
     return (
-        <div className="h-screen flex items-center justify-center bg-gray-100">
-            <TodoList/>
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={<Login/>}/>
+                <Route path="/login" element={<TodoList/>}/> {/* Página de destino */}
+            </Routes>
+        </Router>
     );
 }
+
+export default App;
